@@ -1,3 +1,4 @@
+![alt tag](http://imagizer.imageshack.us/v2/280x200q90/633/KSHvtG.png) 
 # Welcome HACKER!
 
 KolaySiparis is a open-source, strong level, scalable, fast, responsive online [food ordering] web application which is built by Django, a free and open source web application framework, written in Python v2.0, which follows the model–view–controller (MVC) architectural pattern.It is maintained by the Django Software Foundation (DSF), an independent organization.
