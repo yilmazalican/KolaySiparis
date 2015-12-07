@@ -19,6 +19,6 @@ from django.contrib import admin
 from KolaySiparisApp import views
 
 urlpatterns = [
-    
+    url(r'', views.register),
 
 ]
