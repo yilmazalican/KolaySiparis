@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'KolaySiparisApp',
+    'bootstrap3',
+    'bootstrapform',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'KolaySiparis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR,'static/templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'db.ks.mysql',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '15901520',
     }
 }
 #FOR GIT
@@ -123,3 +126,14 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if  DEBUG:
+    MEDIA_URL = '/media/'
+
+    STATIC_ROOT = os.path.join(BASE_DIR,"static","static-only")
+
+    MEDIA_ROOT = os.path.join(BASE_DIR,"static","media")
+
+    STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,"static","static"),
+    )
