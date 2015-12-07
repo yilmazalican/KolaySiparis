@@ -22,7 +22,7 @@ from KolaySiparisApp import views
 urlpatterns = [
     url(r'', views.register),
 
-=======
+
 from KolaySiparisApp.views import home
 from KolaySiparisApp.views import register
 
@@ -30,5 +30,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
     url(r'^register', register),
->>>>>>> b94579b4c8b77097571f66e7c3bfcf0dd1cece3a
 ]
