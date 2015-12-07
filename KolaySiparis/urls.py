@@ -16,15 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-<<<<<<< HEAD
-from KolaySiparisApp import views
-
-urlpatterns = [
-    url(r'', views.register),
-
-
 from KolaySiparisApp.views import home
 from KolaySiparisApp.views import register
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
