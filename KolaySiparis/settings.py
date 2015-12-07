@@ -59,6 +59,7 @@ ROOT_URLCONF = 'KolaySiparis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         'DIRS': [(os.path.join(BASE_DIR,'static/templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -83,10 +84,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'db.ks.mysql',
         'USER': 'root',
-        'PASSWORD': '15901520',
+        'PASSWORD': '',
     }
 }
 #FOR GIT
+ADMIN_ENABLED = False
 
 
 # Password validation
