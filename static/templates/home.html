@@ -40,24 +40,12 @@
      <table>
      <div class="col-md-2">
        <div id="navbar"  class="navbar-collapse collapse">
-<<<<<<< HEAD
-          <form  class="navbar-form navbar-right" action="" method="post">
+
+        {%endif%}
+          <form  class="navbar-form navbar-right">
             {% csrf_token %}
             {%if request.user.is_authenticated%}
-            <span class="label label-success">Logged as {{request.user}}</span>
-            <a href="/logout/" class="btn btn-danger">logout</a>
-          {%elif not request.user.is_authendicated%}
-          <div class="form-group">
-            <input type="text" placeholder="Username" class="form-control" name="username" id="username">
-          </div>
-          <div class="form-group">
-            <input type="password" placeholder="Password" class="form-control" id="password" name="password" >
-          </div>
-          <button type="submit" class="btn btn-danger">Sign in</button>
-        </form>
-        {%endif%}
-=======
-          <form  class="navbar-form navbar-right">
+
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
             </div>
@@ -69,10 +57,10 @@
             <a name="registerButton" class="btn btn-success" type="button" href="register.html">Register</a>
               </div>
           </form>
+          {%endif%}
           </div>
         </div>
         </table>
->>>>>>> 2a907e906c6609e15bcd2b9731be5d54f47dd795
         </div><!--/.navbar-collapse -->
      </div>
   </nav>
