@@ -1,0 +1,21 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static from staticfiles%}
+<form  class="col-sm-6 form-group" action="" method="post">
+  {% csrf_token %}
+<div class="form-group">
+  <input type="text" placeholder="Username" class="form-control" name="username" id="username">
+</div>
+<div class="form-group">
+  <input type="password" placeholder="Password" class="form-control" id="password" name="password" >
+</div>
+<button type="submit" class="btn btn-danger">Sign in</button>
+</form>
