@@ -28,15 +28,23 @@
      <div class="col-md-5"></div>
      <div class="col-md-5">
        <div id="navbar"  class="navbar-collapse collapse">
-          <form  class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-danger">Sign in</button>
-          </form>
+          <form  class="navbar-form navbar-right" action="" method="post">
+            {% csrf_token %}
+            {%if request.user.is_authenticated%}
+            <a href="/logout/" class="btn btn-danger">logout</a>
+
+
+
+          {%elif not request.user.is_authendicated%}
+          <div class="form-group">
+            <input type="text" placeholder="Username" class="form-control" name="username" id="username">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control" id="password" name="password" >
+          </div>
+          <button type="submit" class="btn btn-danger">Sign in</button>
+        </form>
+        {%endif%}
         </div><!--/.navbar-collapse -->
      </div>
   </nav>

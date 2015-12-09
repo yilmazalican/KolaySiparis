@@ -18,10 +18,15 @@ from django.conf.urls import url
 from django.contrib import admin
 from KolaySiparisApp.views import home
 from KolaySiparisApp.views import register
+from KolaySiparisApp.views import login_view
+from KolaySiparisApp.views import logout_view
+
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
     url(r'^register', register),
+    url(r'^login', login_view),
+    url(r'^logout', logout_view),
 ]
