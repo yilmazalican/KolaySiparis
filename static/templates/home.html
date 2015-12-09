@@ -17,16 +17,28 @@
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
  </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#660000">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
    <div class="container-fluid">
     <div class="navbar-header">
-     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="130" height="100"/>
+     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
    </div>
+
     <div class="row">
-     <div class="col-md-5"></div>
-     <div class="col-md-5"></div>
-     <div class="col-md-5"></div>
-     <div class="col-md-5">
+     <div class="col-md-7"></div>
+      <div class="col-md-7">
+       <br> </br>
+          <br> </br>
+            <br> </br>
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for...">
+               <span class="input-group-btn">
+                 <button class="btn btn-danger" type="button">Go!</button>
+               </span>
+             </div>
+</div>
+     <table>
+     <div class="col-md-2">
        <div id="navbar"  class="navbar-collapse collapse">
           <form  class="navbar-form navbar-right">
             <div class="form-group">
@@ -34,9 +46,15 @@
             </div>
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-danger">Sign in</button>
+              </div>
+            <div class="form-group">
+            <a  name="signButton " class="btn btn-success" type="button" href="afterLogin">Sign in</a>
+            <a name="registerButton" class="btn btn-success" type="button" href="register.html">Register</a>
+              </div>
           </form>
+          </div>
+        </div>
+        </table>
         </div><!--/.navbar-collapse -->
      </div>
   </nav>
@@ -53,15 +71,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox" >
       <div class="item active">
-        <img src="{% static "img/yemek1.jpeg" %}" alt="">
+        <img src="{% static "img/yemek1.jpg" %}" alt="">
       </div>
 
       <div class="item">
-        <img src="{% static "img/yemek2.jpeg" %}" alt="">
+        <img src="{% static "img/yemek2.jpg" %}" alt="">
       </div>
 
       <div class="item">
-        <img src="{% static "img/yemek3.jpeg" %}" alt="">
+        <img src="{% static "img/yemek3.jpg" %}" alt="">
       </div>
 
       <div class="item">
@@ -79,47 +97,54 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-        <div class="jumbotron" >
-         <div class="container" style="height:auto" >
-           <div class="row">
-            <div class="col-md-1">
-              <img src="{% static "img/location.png" %}" alt=" " class="img-rounded" width="110" height="100" /></div>
-            <div class="col-md-2">
-              <div class="form-group">
-  <label for="sel1">Select City</label>
-  <select class="form-control" id="sel1">
-    <option>İstanbul</option>
-    <option>İzmir</option>
-    <option>Kocaeli</option>
-    <option>Trabzon</option>
-    <option>Edirne</option>
-    <option>Marmaris</option>
-    <option>Bodrum</option>
-    <option>Adana</option>
-    <option>Mardin</option>
-    <option>Gaziantep</option>
-    <option>Ankara</option>
-    <option>Sivas</option>
-  </select>
+  <br></br>
+     <div class="container "  >
+       <div class="row">
+        <div class="col-md-1 ">
+          <img src="{% static "img/location.png" %}" alt=" " class="img-rounded" width="110" height="90" /></div>
+        <div class="col-md-2">
+          <div class="form-group">
+<label for="sel1">Select City</label>
+ <select class="form-control" id="sel1">
+<option>İstanbul</option>
+<option>İzmir</option>
+<option>Kocaeli</option>
+<option>Trabzon</option>
+<option>Edirne</option>
+<option>Marmaris</option>
+<option>Bodrum</option>
+<option>Adana</option>
+<option>Mardin</option>
+<option>Gaziantep</option>
+<option>Ankara</option>
+<option>Sivas</option>
+</select>
 </div>
 </div>
-          <div class="col-md-2"> <div class="form-group">
-  <label for="sel1">Select Region:</label>
-  <select class="form-control" id="sel1">
-    <option>Acıbadem</option>
-    <option>Kadıköy</option>
-    <option>Kartal</option>
-    <option>Şile</option>
-  </select>
+      <div class="col-md-2">
+   <div class="form-group">
+<label for="sel1">Select Region:</label>
+<select class="form-control" id="sel1">
+<option>Acıbadem</option>
+<option>Kadıköy</option>
+<option>Kartal</option>
+<option>Şile</option>
+</select>
 </div></div>
-        </div>
-        </div>
-  </div>
 
-     <div class="row"  style="background-color:#660000" >
-       <div class="col-md-4"></div>
-     </div>
+<div class="col-md-6">
+<p class="navbar-text navbar-right">About <a href="#" class="navbar-link">KolaySiparis.com</a>
+<br><a href="#" class="navbar-link">Communication</a><br></p>
+ </div>
+
+
+    </div>
+    </div>
+
+
+
+
+
 
 
 

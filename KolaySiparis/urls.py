@@ -19,6 +19,7 @@ from django.contrib import admin
 from KolaySiparisApp.views import home
 from KolaySiparisApp.views import register
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),

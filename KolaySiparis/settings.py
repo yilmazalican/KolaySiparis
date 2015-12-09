@@ -59,6 +59,7 @@ ROOT_URLCONF = 'KolaySiparis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         'DIRS': [(os.path.join(BASE_DIR,'static/templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -87,6 +88,7 @@ DATABASES = {
     }
 }
 #FOR GIT
+ADMIN_ENABLED = False
 
 
 # Password validation
