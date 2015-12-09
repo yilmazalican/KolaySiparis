@@ -2,16 +2,42 @@ from django.shortcuts import render
 from KolaySiparisApp.models import UserInfo
 from django.contrib.auth.models import User
 from .forms import RegisterForm
+from .forms import LoginForm
 from django.http import HttpResponseRedirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 
 # Create your views here.
 def home(request):
-     return render(request, 'home.html')
+     if request.method == 'POST':
+         # create a form instance and populate it with data from the request:
+         form = LoginForm(request.POST)
+
+         # check whether it's valid:
+         if form.is_valid():
+             print "buraya geldim"
+             user = authenticate(username=form.cleaned_data["username"], password=form.cleaned_data["password"])
+             login(request,user)
+             return HttpResponseRedirect('/login/')
+
+         else:
+             print form.errors
+             print "form valid degil"
+
+     # if a GET (or any other method) we'll create a blank form
+     else:
+         print "else geldim"
+         print request.method
+         form = LoginForm()
+
+     print "buraya geldim"
+     return render(request, 'home.html', {'form': form})
 
 
+def logout_view(request):
+    logout(request)
+    return render(request, 'logout_view.html')
 
 
 
