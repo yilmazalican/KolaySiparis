@@ -46,7 +46,14 @@
           <form  class="navbar-form navbar-right" method="POST" action="">
             {% csrf_token %}
             {%if request.user.is_authenticated%}
+            <div class="navbar-form navbar-right"/>
+            
+
             <span class="label label-success">Logged as {{request.user}}</span>
+
+            <div class="navbar-form navbar-right"/>
+
+
             <a href="/logout/" class="btn btn-danger">logout</a>
             {%elif not request.user.is_authendicated%}
             <div class="form-group">
