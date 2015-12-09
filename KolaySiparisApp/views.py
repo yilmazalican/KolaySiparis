@@ -19,7 +19,7 @@ def home(request):
              print "buraya geldim"
              user = authenticate(username=form.cleaned_data["username"], password=form.cleaned_data["password"])
              login(request,user)
-             return HttpResponseRedirect('/login/')
+             return HttpResponseRedirect('/')
 
          else:
              print form.errors
@@ -103,7 +103,8 @@ def register(request):
 
 
 
-
+def restaurant_login_view(request):
+    return render(request, 'restaurant_login.html')
 
 def login_view(request):
     return render(request, 'login_view.html')
