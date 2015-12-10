@@ -1,0 +1,89 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static from staticfiles%}
+
+<html  lang="en">
+ <head>
+
+ </head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+   </div>
+   <div class="row">
+      <div class="col-md-1" ></div>
+     <div class="col-md-7" >
+   <br></br>
+      <br></br>
+            <br></br>
+   <div class="input-group">
+      <input type="text" name="tb_anything" class="form-control" placeholder="Search for anything">
+      <span class="input-group-btn">
+        <button class="btn btn-danger" name="bt_search" type="button">Search!</button>
+      </span>
+    </div>
+  </div><!--/.end col1 -->
+  </div><!--/.end row -->
+  </div>
+  </nav> <!--/.navbar-collapse -->
+
+
+
+
+      <div class="row">
+  <div class="container">
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+      <div class="col-md-2 " style ='background-color:'>
+      <form  class="form-signin">
+      <h2 class="form-signin-heading"></h2>
+     <label for="inputEmail" class="sr-only">Email address</label>
+     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+     <label for="inputPassword" class="sr-only">Password</label>
+     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+     <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+  </form>
+</div>
+
+
+<div class="col-md-9">
+
+    <h2>Menu</h2>
+    <table class="table">
+
+      <tbody>
+        <tr class="success">
+          <td>Çiğköfte</td>
+          <td>Muhteşem sunumu ile hazırlanmış, güzel 300gr çiğköfte...</td>
+          <td><p>30₺<a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
+
+          </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+  </div><!--/.end row-->
+</div><!--/.end container -->
