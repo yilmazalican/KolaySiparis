@@ -40,12 +40,6 @@ def logout_view(request):
     return render(request, 'logout_view.html')
 
 
-
-
-
-
-
-
 def register(request):
       # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -86,25 +80,12 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def restaurant_login_view(request):
     return render(request, 'restaurant_login.html')
 
+
 def login_view(request):
     return render(request, 'login_view.html')
+
+def customerRestaurant_view(request):
+    return render(request,'customerRestaurant.html')
