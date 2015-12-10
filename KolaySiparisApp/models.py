@@ -17,15 +17,29 @@ class Restaurant(models.Model):
     description = models.CharField(max_length=200)
     joindate = models.DateTimeField(default=datetime.now, blank=True)
     delivertime = models.CharField(max_length=100)
+    status = models.BooleanField(default = True)
 
 
 class Restaurant_Promos(models.Model):
-    restaurant = models.OneToOneField(Restaurant)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
 
-class Restaurant_Menu
-    restaurant = models.OneToOneField(Restaurant)
+class Menu(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name  = models.CharField(max_length=100)
     price = models.FloatField()
     description = models.CharField(max_length=100)
+
+
+
+class Order(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete = models.CASCADE)
+    time = models.DateTimeField()
+    status = models.BooleanField()
+    menu = models.ManyToManyField(Menu)
+    totalprice = models.IntegerField(default=0)
+
+class Customer_Orders(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    order = models.OneToOneField(Order)
