@@ -23,3 +23,9 @@ class Restaurant_Promos(models.Model):
     restaurant = models.OneToOneField(Restaurant)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
+
+class Restaurant_Menu
+    restaurant = models.OneToOneField(Restaurant)
+    name  = models.CharField(max_length=100)
+    price = models.FloatField()
+    description = models.CharField(max_length=100)
