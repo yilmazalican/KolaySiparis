@@ -8,12 +8,13 @@ from django.contrib.auth.models import User
 
 
 class Address(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     user_adress = models.CharField(max_length=1000)
+
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User)
     phone = models.BigIntegerField()
-    adress = models.ForeignKey(Address, on_delete=models.CASCADE)
 
 
 
