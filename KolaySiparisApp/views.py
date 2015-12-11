@@ -48,7 +48,7 @@ def register(request):
         form = RegisterForm(request.POST)
 
         # check whether it's valid:
-        if form.is_valid() and len(form.cleaned_data) >=9:
+        if form.is_valid() and len(form.cleaned_data) >=6:
             print "burdayim"
             print "form valid"
             u = User.objects.create_user(username=form.cleaned_data["username"],email=form.cleaned_data["email"],password= form.cleaned_data["password"] )
@@ -58,8 +58,6 @@ def register(request):
             u.save()
             userinf = UserInfo()
             userinf.user = u
-            userinf.adress = form.cleaned_data["adress"]
-            userinf.location = form.cleaned_data["city"] + "/" + form.cleaned_data["state"]
             userinf.phone = form.cleaned_data["phone"]
 
             userinf.save()

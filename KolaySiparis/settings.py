@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'bootstrap3',
     'bootstrapform',
 
-
 ]
 
 MIDDLEWARE_CLASSES = [

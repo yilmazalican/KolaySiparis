@@ -11,20 +11,27 @@
 {% load randomn %}
 
 
-
 <html  lang="en">
  <head>
-<script source="{% static django-jquery %}">
-$(".use-address").click(function() {
-    var $row = $(this).closest("tr");    // Find the row
-    var $text = $row.find(".km").text(); // Find the text
+<script type="text/javascript" >
 
-    // Let's test it out
-    alert($text);
+$(document).ready(function(){
+
+  $(".use-address").click(function() {
+      var $row = $(this).closest("tr");
+        // Find the row
+      var $text = $row.find(".nr").text(); // Find the text
+
+      $("#myvar").text($text);
+
+  });
 });
-</script>
+  </script>
+
 
  </head>
+
+
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
@@ -79,26 +86,17 @@ $(".use-address").click(function() {
 
     <h2> McDonald's Menu</h2>
     <table class="table" id="menutable" name="menutable">
-
-
-
-
       <tbody>
-
-
-
         {%for a in list%}
         <tr class = {% DoRandom %}>
-
-          <td class="km">{{ a.name }}</td>
+          <td class="nr">{{ a.name }}</td>
           <td>{{ a.description }}</td>
           <td>
             <button type="button" class="use-address" />
           </td>
-
           <td ><p>${{ a.price }}<a href="#"><span  class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
+          <td id="myvar"></td>
           </tr>
-
           {%endfor%}
       </tbody>
     </table>
