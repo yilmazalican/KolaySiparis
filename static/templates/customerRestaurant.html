@@ -8,11 +8,30 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 {% load static from staticfiles%}
+{% load randomn %}
+
 
 <html  lang="en">
  <head>
+<script type="text/javascript" >
+
+$(document).ready(function(){
+
+  $(".use-address").click(function() {
+      var $row = $(this).closest("tr");
+        // Find the row
+      var $text = $row.find(".nr").text(); // Find the text
+
+      $("#myvar").text($text);
+
+  });
+});
+  </script>
+
 
  </head>
+
+
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
@@ -65,17 +84,20 @@
 
 <div class="col-md-9">
 
-    <h2>Menu</h2>
-    <table class="table">
-
+    <h2> McDonald's Menu</h2>
+    <table class="table" id="menutable" name="menutable">
       <tbody>
-        <tr class="success">
-          <td>Çiğköfte</td>
-          <td>Muhteşem sunumu ile hazırlanmış, güzel 300gr çiğköfte...</td>
-          <td><p>30₺<a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
-
+        {%for a in list%}
+        <tr class = {% DoRandom %}>
+          <td class="nr">{{ a.name }}</td>
+          <td>{{ a.description }}</td>
+          <td>
+            <button type="button" class="use-address" />
+          </td>
+          <td ><p>${{ a.price }}<a href="#"><span  class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
+          <td id="myvar"></td>
           </tr>
-
+          {%endfor%}
       </tbody>
     </table>
   </div>
