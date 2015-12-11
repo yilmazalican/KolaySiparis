@@ -14,7 +14,7 @@
     <h1 class="well">Customer Registration</h1>
 	<div class="col-lg-12 well">
 	<div class="row" >
-				<form action="" method="POST" >
+				<form action="" method="POST"  >
           {% csrf_token %}
           <div class="col-sm-12">
 						<div class="row">
@@ -22,12 +22,12 @@
 
               <div class="col-sm-6 form-group">
                 <label>User Name</label>
-                <input type="text" placeholder="Enter User Name Here.." class="form-control"   name="username" id="username" />
+                <input type="text" placeholder="Enter User Name Here.." class="form-control"   name="username" id="username" required autofocus />
               </div>
 
               <div class="col-sm-6 form-group">
                 <label>Password</label>
-                <input type="password" placeholder="Enter User Password Here.." class="form-control"   name="password" id="password" />
+                <input type="password" placeholder="Enter User Password Here.." class="form-control"   name="password" id="password" required autofocus  />
               </div>
 
 
@@ -36,30 +36,30 @@
               <div class="col-sm-6 form-group">
 
 								<label>First Name</label>
-								<input type="text" placeholder="Enter First Name Here.." class="form-control" name="firstname" id="firstname">
+								<input type="text" placeholder="Enter First Name Here.." class="form-control" name="firstname" id="firstname" required autofocus >
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Last Name</label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control" id="lastname" name="lastname">
+								<input type="text" placeholder="Enter Last Name Here.." class="form-control" id="lastname" name="lastname" required autofocus >
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Address</label>
-							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" id="adress" name="adress"></textarea>
+							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" id="adress" name="adress"></textarea required autofocus >
 						</div>
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<label>City</label>
-								<input type="text" placeholder="Enter City Name Here.." class="form-control"  name="city" id="city" />
+								<input type="text" placeholder="Enter City Name Here.." class="form-control"  name="city" id="city" / required autofocus >
 							</div>
               <div class="row">
   							<div class="col-sm-4 form-group">
   								<label>Email</label>
-  								<input type="text" placeholder="Enter Email Name Here.." class="form-control"  name="email" id="email" />
+  								<input type="text" placeholder="Enter Email Name Here.." class="form-control"  name="email" id="email" required autofocus />
   							</div>
 							<div class="col-sm-4 form-group">
 								<label>State</label>
-								<input type="text" placeholder="Enter State Name Here.." class="form-control"   name="state" id="state" />
+								<input type="text" placeholder="Enter State Name Here.." class="form-control"   name="state" id="state" required autofocus />
 							</div>
 
 
@@ -67,7 +67,7 @@
 
 					<div class="form-group">
 						<label>Phone Number</label>
-						<input type="text" placeholder="Enter Phone Number Here.." class="form-control" name="phone", id="phone"/>
+						<input type="text" placeholder="Enter Phone Number Here.." class="form-control" name="phone", id="phone"required autofocus />
 					</div>
 
 

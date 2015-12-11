@@ -8,9 +8,21 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 {% load static from staticfiles%}
+{% load randomn %}
+
+
 
 <html  lang="en">
  <head>
+<script source="{% static django-jquery %}">
+$(".use-address").click(function() {
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".km").text(); // Find the text
+
+    // Let's test it out
+    alert($text);
+});
+</script>
 
  </head>
 <body>
@@ -65,17 +77,29 @@
 
 <div class="col-md-9">
 
-    <h2>Menu</h2>
-    <table class="table">
+    <h2> McDonald's Menu</h2>
+    <table class="table" id="menutable" name="menutable">
+
+
+
 
       <tbody>
-        <tr class="success">
-          <td>Çiğköfte</td>
-          <td>Muhteşem sunumu ile hazırlanmış, güzel 300gr çiğköfte...</td>
-          <td><p>30₺<a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
 
+
+
+        {%for a in list%}
+        <tr class = {% DoRandom %}>
+
+          <td class="km">{{ a.name }}</td>
+          <td>{{ a.description }}</td>
+          <td>
+            <button type="button" class="use-address" />
+          </td>
+
+          <td ><p>${{ a.price }}<a href="#"><span  class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
           </tr>
 
+          {%endfor%}
       </tbody>
     </table>
   </div>

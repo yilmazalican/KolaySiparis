@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from KolaySiparisApp.models import UserInfo
+from KolaySiparisApp.models import UserInfo, Menu
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from .forms import LoginForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+import random
 
 
 
@@ -88,4 +89,33 @@ def login_view(request):
     return render(request, 'login_view.html')
 
 def customerRestaurant_view(request):
-    return render(request,'customerRestaurant.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    all_entries = Menu.objects.all()
+    return render(request, 'customerRestaurant.html', {'list': all_entries, 'random': random})

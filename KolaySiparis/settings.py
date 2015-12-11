@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'bootstrapform',
 
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'db.ks.mysql',
         'USER': 'root',
-        'PASSWORD': '15901520',
+        'PASSWORD': '',
     }
 }
 #FOR GIT
