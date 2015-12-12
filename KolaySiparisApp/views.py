@@ -31,14 +31,13 @@ def home(request):
          print "else geldim"
          print request.method
          form = LoginForm()
-
      print "buraya geldim"
      return render(request, 'home.html', {'form': form})
 
 
 def logout_view(request):
     logout(request)
-    return render(request, 'logout_view.html')
+    return HttpResponseRedirect('/')
 
 
 def register(request):
