@@ -118,4 +118,3 @@ def customerRestaurant_view(request):
 
     all_entries = Menu.objects.all()
     return render(request, 'customerRestaurant.html', {'list': all_entries, 'random': random})
->>>>>>> 07426ea2e890dc3784d94fd030c1c7098f856867
