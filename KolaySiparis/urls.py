@@ -22,6 +22,9 @@ from KolaySiparisApp.views import login_view
 from KolaySiparisApp.views import logout_view
 from KolaySiparisApp.views import restaurant_login_view
 from KolaySiparisApp.views import customerRestaurant_view
+from KolaySiparisApp.views import payment
+from KolaySiparisApp.views import editmenu
+from KolaySiparisApp.views import restaurantlist
 
 
 
@@ -34,5 +37,7 @@ urlpatterns = [
     url(r'^logout', logout_view),
     url(r'^rlogin', restaurant_login_view),
     url(r'^customerRestaurant',customerRestaurant_view),
-
+	url(r'^payment', payment),
+    url(r'^editmenu', editmenu),
+    url(r'^restaurantlist', restaurantlist),
 ]
