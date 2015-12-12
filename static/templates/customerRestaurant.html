@@ -56,8 +56,6 @@
         </form>
       </div>
 
-
-
       <div class="col-md-9">
 
         <h2> McDonald's Menu</h2>
@@ -67,11 +65,11 @@
 
             <tbody>
               {%for a in list%}
-              <tr class= {% DoRandom %}>
+              <tr class= "info">
                 <td >{{a.name}}</td>
                 <td class="nr">{{a.description}}</td>
                 <td class="rn"><p>{{a.price}}</p></td>
-                <td id="addbutton" > <button class="myaddButton" type="button"> Add to Basket </button> </td>
+                <td id="addbutton" > <button class="myaddButton btn btn-info" type="button"> Add to Basket </button> </td>
               </tr>
 
               {%endfor%}
@@ -80,7 +78,7 @@
         </div>
         <div class="row">
           <div class="col-md-2 " style ='background-color:'>
-            <table border="1" class="table"name="carttable">
+            <table border="1" class="table" id="cart_table">
 
               <thead>
                 <td>Selected Food</td>
@@ -90,9 +88,76 @@
               </tbody>
             </table>
           </div>
-          <div>
-          </div><!--/.end row-->
-        </div><!--/.end container -->
+        </div>
+        <button data-toggle="modal" data-target="#myModal" type="button" class="do_order; btn btn-lg btn-success" >Order</button>
+
+
+
+
+
+        <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Order Total</h4>
+      </div>
+      <div class="modal-body">
+        <h1> Total Price: <span class="label label-lg label-success">$32</span></h1>
+        <table id="cart_table"></table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-danger">Order</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <script type="text/javascript" >
 
         $(document).ready(function(){
@@ -104,8 +169,11 @@
             .text();
             var $foodprice = $(this).closest("tr")   // Finds the closest row <tr>
             .find(".rn")     // Gets a descendent with class="nr"
+
             .text();
-            $('#carttable').prepend("<tr class='danger' id ='myTableRow'><td>"+$foodname+"</td><td class='price'>"+$foodprice+"</td> <td> <button type='button' class='deletebutton' >Delete</button>  </td></tr>");
+
+            //<button type='button' class='deletebutton btn btn-danger' >Delete</button>
+            $('#carttable').prepend("<tr class='info' id ='myTableRow'><td>"+$foodname+"</td><td class='price'>"+$foodprice+"</td> <td>  <a class='deletebutton'  href='#' class='btn btn-info '><span class='glyphicon glyphicon-trash'></span>  </a></td></tr>");
 
           });
           $(document).on('click', '.deletebutton', function() {
@@ -120,5 +188,15 @@
             //$('#total').html(sum);
             //sum = 0;
           });
+
+
+
+          $(document).on('click', '.do_order', function() {
+
+
+          });
+
+
+
         });
         </script>

@@ -32,12 +32,14 @@ class Restaurant_Promos(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
+    status = models.BooleanField(default=True)
 
 class Menu(models.Model):
     name  = models.CharField(max_length=100)
     price = models.FloatField()
     description = models.CharField(max_length=100)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
 
 
 
