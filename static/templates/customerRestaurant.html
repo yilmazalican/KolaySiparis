@@ -10,102 +10,115 @@
 {% load static from staticfiles%}
 {% load randomn %}
 
-
 <html  lang="en">
- <head>
-<script type="text/javascript" >
-
-$(document).ready(function(){
-
-  $(".use-address").click(function() {
-      var $row = $(this).closest("tr");
-        // Find the row
-      var $text = $row.find(".nr").text(); // Find the text
-
-      $("#myvar").text($text);
-
-  });
-});
-  </script>
-
-
- </head>
-
-
 <body>
-
   <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
-   <div class="container-fluid">
-    <div class="navbar-header">
-     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
-   </div>
-   <div class="row">
-      <div class="col-md-1" ></div>
-     <div class="col-md-7" >
-   <br></br>
-      <br></br>
-            <br></br>
-   <div class="input-group">
-      <input type="text" name="tb_anything" class="form-control" placeholder="Search for anything">
-      <span class="input-group-btn">
-        <button class="btn btn-danger" name="bt_search" type="button">Search!</button>
-      </span>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+      </div>
+      <div class="row">
+        <div class="col-md-1" ></div>
+        <div class="col-md-7" >
+          <br></br>
+          <br></br>
+          <br></br>
+          <div class="input-group">
+            <input type="text" name="tb_anything" class="form-control" placeholder="Search for anything">
+            <span class="input-group-btn">
+              <button class="btn btn-danger" name="bt_search" type="button">Search!</button>
+            </span>
+          </div>
+        </div><!--/.end col1 -->
+      </div><!--/.end row -->
     </div>
-  </div><!--/.end col1 -->
-  </div><!--/.end row -->
-  </div>
   </nav> <!--/.navbar-collapse -->
 
-
-
-
-      <div class="row">
-  <div class="container">
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+  <div class="row">
+    <div class="container">
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <div class="col-md-2 " style ='background-color:'>
-      <form  class="form-signin">
-      <h2 class="form-signin-heading"></h2>
-     <label for="inputEmail" class="sr-only">Email address</label>
-     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-     <label for="inputPassword" class="sr-only">Password</label>
-     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-     <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-  </form>
-</div>
-
-
-<div class="col-md-9">
-
-    <h2> McDonald's Menu</h2>
-    <table class="table" id="menutable" name="menutable">
-      <tbody>
-        {%for a in list%}
-        <tr class = {% DoRandom %}>
-          <td class="nr">{{ a.name }}</td>
-          <td>{{ a.description }}</td>
-          <td>
-            <button type="button" class="use-address" />
-          </td>
-          <td ><p>${{ a.price }}<a href="#"><span  class="glyphicon glyphicon-shopping-cart"></span></a></p></td>
-          <td id="myvar"></td>
-          </tr>
-          {%endfor%}
-      </tbody>
-    </table>
-  </div>
+        <form  class="form-signin">
+          <h2 class="form-signin-heading"></h2>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+        </form>
+      </div>
 
 
 
+      <div class="col-md-9">
 
+        <h2> McDonald's Menu</h2>
+        <table class="table" id="menutable" name="menutable">
 
+          <tr class="danger">
 
-  </div><!--/.end row-->
-</div><!--/.end container -->
+            <tbody>
+              {%for a in list%}
+              <tr class= {% DoRandom %}>
+                <td >{{a.name}}</td>
+                <td class="nr">{{a.description}}</td>
+                <td class="rn"><p>{{a.price}}</p></td>
+                <td id="addbutton" > <button class="myaddButton" type="button"> Add to Basket </button> </td>
+              </tr>
+
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-md-2 " style ='background-color:'>
+            <table border="1" class="table"name="carttable">
+
+              <thead>
+                <td>Selected Food</td>
+                <td>Price</td>
+              </thead>
+              <tbody  id="carttable" >
+              </tbody>
+            </table>
+          </div>
+          <div>
+          </div><!--/.end row-->
+        </div><!--/.end container -->
+        <script type="text/javascript" >
+
+        $(document).ready(function(){
+          var sum = 0;
+          $(document).on('click', '.myaddButton', function() {
+
+            var $foodname = $(this).closest("tr")   // Finds the closest row <tr>
+            .find(".nr")     // Gets a descendent with class="nr"
+            .text();
+            var $foodprice = $(this).closest("tr")   // Finds the closest row <tr>
+            .find(".rn")     // Gets a descendent with class="nr"
+            .text();
+            $('#carttable').prepend("<tr class='danger' id ='myTableRow'><td>"+$foodname+"</td><td class='price'>"+$foodprice+"</td> <td> <button type='button' class='deletebutton' >Delete</button>  </td></tr>");
+
+          });
+          $(document).on('click', '.deletebutton', function() {
+            $('#myTableRow').remove();
+            //$('.price').each(function() {
+            //  var $price = $(this);
+            //console.log($price);
+            //sum += parseInt($price.context.innerHTML);
+
+            //});
+
+            //$('#total').html(sum);
+            //sum = 0;
+          });
+        });
+        </script>
