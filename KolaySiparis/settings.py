@@ -84,7 +84,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'db.ks.mysql',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'ottowoman1',
+
     }
 }
 #FOR GIT

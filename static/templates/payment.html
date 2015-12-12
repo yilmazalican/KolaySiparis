@@ -1,0 +1,188 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static from staticfiles%}
+
+
+<title>
+Payment
+</title>
+</br></br>
+<body>
+
+</br></br></br></br></br>
+</br></br></br></br></br>
+
+<nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+   </div>
+
+    <div class="row">
+     <div class="col-md-7"></div>
+      <div class="col-md-7">
+       <br> </br>
+          <br> </br>
+            <br> </br>
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for...">
+               <span class="input-group-btn">
+                 <button class="btn btn-danger" type="button">Go!</button>
+               </span>
+             </div>
+</div>
+     <table>
+     <div class="col-md-2">
+       <div id="navbar"  class="navbar-collapse collapse">
+
+
+
+          <form  class="navbar-form navbar-right" method="POST" action="">
+            {% csrf_token %}
+            {%if request.user.is_authenticated%}
+            <div class="navbar-form navbar-right"/>
+
+
+            <span class="label label-success">Logged as {{request.user}}</span>
+
+            <div class="navbar-form navbar-right"/>
+
+
+            <a href="/logout/" class="btn btn-danger">logout</a>
+            {%elif not request.user.is_authendicated%}
+            <div class="form-group">
+              <input type="text" placeholder="Username" class="form-control" name="username" id="username">
+            </div>
+
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" name="password" id="password" >
+              </div>
+            <div class="form-group">
+            <Button  name="signinButton " class="btn btn-success" type="submit">Sign in</Button>
+            <a href="/register/" class="btn btn-success">Register</a>
+
+              </div>
+          </form>
+          {%endif%}
+          </div>
+        </div>
+        </table>
+        </div><!--/.navbar-collapse -->
+     </div>
+  </nav>
+
+
+
+
+
+<div class="container">
+  <form class="form-horizontal" role="form">
+    <fieldset>
+      <legend><h2>Payment</h2></legend>
+
+
+
+	    <div class="form-group">
+        <label class="col-sm-3 control-label" for="expiry-month">Payment Type</label>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-xs-3">
+
+
+              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                <option>-Select-</option>
+                <option value="01">Cash</option>
+                <option value="02">Credit Card</option>
+				<option value="02">Both</option>
+
+              </select>
+            </div>
+
+
+          </div>
+		   </div>
+      </div>
+
+		 <div class="form-group">
+        <label class="col-sm-3 control-label" for="expiry-month">Region</label>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-xs-3">
+
+
+              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                <option>-Select-</option>
+				<option value="01">New Address</option>
+
+
+              </select>
+            </div>
+
+
+          </div>
+		   </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="card-holder-name">Address</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="card-number">Name / Lastname</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="cvv">Phone Number</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Phone">
+        </div>
+      </div>
+
+
+	  <div class="form-group">
+        <label class="col-sm-3 control-label" for="cvv">Promotion Code</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Code">
+        </div>
+      </div>
+
+
+	  <div class="form-group">
+        <label class="col-sm-3 control-label" for="card-number">Add your comment</label>
+        <div class="col-sm-9">
+          <textarea cols="12" rows="4" class="form-control" name="card-number" id="card-number" placeholder="">
+		  </textarea>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="button" button onclick="doMyFunction();" class="btn btn-success">Approve Order</button>
+
+
+
+        </div>
+      </div>
+
+
+    </fieldset>
+  </form>
+</div>
+</body>

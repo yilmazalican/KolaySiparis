@@ -42,6 +42,7 @@ def logout_view(request):
 
 
 def register(request):
+
       # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -89,31 +90,15 @@ def login_view(request):
 def customerRestaurant_view(request):
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     all_entries = Menu.objects.all()
     return render(request, 'customerRestaurant.html', {'list': all_entries, 'random': random})
+
+
+def payment(request):
+    return render(request, 'payment.html')
+
+def editmenu(request):
+    return render(request, 'EditMenu.html')
+
+def restaurantlist(request):
+    return render(request, 'RestaurantList.html')
