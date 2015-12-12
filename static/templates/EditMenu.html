@@ -1,0 +1,169 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static from staticfiles%}
+{% load randomn %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Justified Nav Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="justified-nav.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  
+  <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+   </div>
+
+    <div class="row">
+     <div class="col-md-7"></div>
+      <div class="col-md-7">
+       <br> </br>
+          <br> </br>
+            <br> </br>
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for...">
+               <span class="input-group-btn">
+                 <button class="btn btn-danger" type="button">Go!</button>
+               </span>
+             </div>
+</div>
+     <table>
+     <div class="col-md-2">
+       <div id="navbar"  class="navbar-collapse collapse">
+
+
+
+          <form  class="navbar-form navbar-right" method="POST" action="">
+            {% csrf_token %}
+            {%if request.user.is_authenticated%}
+            <div class="navbar-form navbar-right"/>
+
+
+            <span class="label label-success">Logged as {{request.user}}</span>
+
+            <div class="navbar-form navbar-right"/>
+
+
+            <a href="/logout/" class="btn btn-danger">logout</a>
+            {%elif not request.user.is_authendicated%}
+            <div class="form-group">
+              <input type="text" placeholder="Username" class="form-control" name="username" id="username">
+            </div>
+
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" name="password" id="password" >
+              </div>
+            <div class="form-group">
+            <Button  name="signinButton " class="btn btn-success" type="submit">Sign in</Button>
+            <a href="/register/" class="btn btn-success">Register</a>
+
+              </div>
+          </form>
+          {%endif%}
+          </div>
+        </div>
+        </table>
+        </div><!--/.navbar-collapse -->
+     </div>
+  </nav>
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+
+	  </br></br></br></br>
+	  </br></br></br></br>
+	   </br></br></br></br>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Marketing stuff!</h1>
+        <p class="lead">
+		Add,Change and Edit your menu easily !</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Add Menu</h2>
+         <textarea rows="4" cols="50">
+
+		</textarea>
+
+          <p><a class="btn btn-primary" href="#" role="button">Submit &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Edit Menu</h2>
+		    <textarea rows="4" cols="50">
+
+		</textarea>
+          <p><a class="btn btn-primary" href="#" role="button">Submit &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Promotions</h2>
+		<textarea rows="4" cols="50">
+
+		</textarea>
+		<p><a class="btn btn-primary" href="#" role="button">Submit &raquo;</a></p>
+        </div>
+      </div>
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; 2015 Company, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
