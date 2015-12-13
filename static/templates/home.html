@@ -21,52 +21,73 @@
   <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
    <div class="container-fluid">
     <div class="navbar-header">
-     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="170"/>
    </div>
-
     <div class="row">
-     <div class="col-md-7"></div>
-      <div class="col-md-7">
-       <br> </br>
-          <br> </br>
-            <br> </br>
-            <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search for...">
-               <span class="input-group-btn">
-                 <button class="btn btn-danger" type="button">Go!</button>
-               </span>
-             </div>
-</div>
+       <div class="col-md-1">
+         <br></br>
+         <br></br>
+         <br></br>
+         <div class="dropdown">
+           <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+             Districts
+             <span class="caret"></span>
+           </button>
+           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="height: 200; overflow-y:scroll;  border: 1px" >
+             <li><a href="#">Kartal</a></li>
+             <li><a href="#">Kartal</a></li>
+              <li><a href="#">Kartal</a></li>
+             <li><a href="#">Kartal</a></li>
+              <li><a href="#">Kartal</a></li>
+               <li><a href="#">Kartal</a></li>
+                <li><a href="#">Kartal</a></li>
+                 <li><a href="#">Kartal</a></li>
+                  <li><a href="#">Kartal</a></li>
+                  <li><a href="#">Kartal</a></li>
+                   <li><a href="#">Kartal</a></li>
+                    <li><a href="#">Kartal</a></li>
+                     <li><a href="#">Kartal</a></li>
+                      <li><a href="#">Kartal</a></li>
+           </ul>
+         </div>
+
+
+
+       </div>
+      <div class="col-md-4">
+        <br></br>
+         <br></br>
+         <br></br>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for Restaurant">
+      <span class="input-group-btn">
+        <button class="btn btn-danger" type="button">Search!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+
+  <div class="col-md-2"></div>
      <table>
      <div class="col-md-2">
        <div id="navbar"  class="navbar-collapse collapse">
-
-
-
           <form  class="navbar-form navbar-right" method="POST" action="">
             {% csrf_token %}
             {%if request.user.is_authenticated%}
             <div class="navbar-form navbar-right"/>
 
-
             <span class="label label-success">Logged as {{request.user}}</span>
-
             <div class="navbar-form navbar-right"/>
-
-
             <a href="/logout/" class="btn btn-danger">logout</a>
             {%elif not request.user.is_authendicated%}
             <div class="form-group">
               <input type="text" placeholder="Username" class="form-control" name="username" id="username">
             </div>
-
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control" name="password" id="password" >
               </div>
             <div class="form-group">
             <Button  name="signinButton " class="btn btn-success" type="submit">Sign in</Button>
             <a href="/register/" class="btn btn-success">Register</a>
-
               </div>
           </form>
           {%endif%}
@@ -75,11 +96,10 @@
         </table>
         </div><!--/.navbar-collapse -->
      </div>
+     </div><!-- /.row -->
   </nav>
 
-
-<div class="span6 columns" class="carousel">
-  <div id="myCarousel" class="carousel slide"  data-ride="carousel" >
+  <div id="myCarousel" class="carousel slide"  data-ride="carousel"   >
 
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -90,7 +110,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" >
+    <div class="carousel-inner" role="listbox" style="display: flex; justify-content: center;" >
       <div class="item active">
         <img class="img-responsive center-block" src="{% static "img/yemek1.jpg" %}"  alt="">
       </div>
@@ -117,55 +137,18 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
-  <br></br>
-     <div class="container "  >
-       <div class="row"></div>
-        <div class="col-md-2">
-          <div class="form-group">
-<label for="sel1">Select City</label>
- <select class="form-control" id="sel1">
-<option>İstanbul</option>
-<option>İzmir</option>
-<option>Kocaeli</option>
-<option>Trabzon</option>
-<option>Edirne</option>
-<option>Marmaris</option>
-<option>Bodrum</option>
-<option>Adana</option>
-<option>Mardin</option>
-<option>Gaziantep</option>
-<option>Ankara</option>
-<option>Sivas</option>
-</select>
-</div>
-</div>
-      <div class="col-md-2">
-   <div class="form-group">
-<label for="sel1">Select Region:</label>
-<select class="form-control" id="sel1">
-<option>Acıbadem</option>
-<option>Kadıköy</option>
-<option>Kartal</option>
-<option>Şile</option>
-</select>
-</div></div>
-<div class="col-md-6">
-<p class="navbar-text navbar-right">About <a href="#" class="navbar-link">KolaySiparis.com</a>
-<br><a href="#" class="navbar-link">Communication</a><br></p>
- </div>
 
+     </div>
 
+    <div class="container "  >
+      <div class="row">
+       <div class="col-md-7 "> </div>
+      <div class="col-md-4">
+      <p class="navbar-text navbar-right"> About<a href="#" class="navbar-link">KolaySiparis.com</a>
+     <br><a href="#" class="navbar-link">Communication</a><br></p>
+     </div>
     </div>
     </div>
-
-</div>
-
-
-
-
-
-
 
  </body>
 </html>
