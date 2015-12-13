@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from KolaySiparisApp.models import UserInfo, Menu
+from KolaySiparisApp.models import UserInfo, Menu,Restaurant
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from .forms import LoginForm
@@ -33,7 +33,26 @@ def home(request):
          print request.method
          form = LoginForm()
      print "buraya geldim"
-     return render(request, 'home.html', {'form': form})
+
+
+
+
+
+     disct_list = Restaurant.objects.all().distinct()
+
+
+     print disct_list
+     return render(request, 'home.html', {'form': form, 'dictrict':disct_list})
+
+
+
+
+
+
+
+
+
+
 
 
 def logout_view(request):
@@ -87,11 +106,12 @@ def restaurant_login_view(request):
 def login_view(request):
     return render(request, 'login_view.html')
 
-def customerRestaurant_view(request):
+def customerRestaurant_view(request,res_id):
 
+    ident_menu_res = Menu.objects.filter(restaurant_id=res_id)
+    ident_res = Restaurant.objects.get(id=res_id)
 
-    all_entries = Menu.objects.all()
-    return render(request, 'customerRestaurant.html', {'list': all_entries, 'random': random})
+    return render(request, 'customerRestaurant.html', {'result': ident_menu_res, 'aboutres': ident_res})
 
 
 def payment(request):
@@ -100,6 +120,31 @@ def payment(request):
 def editmenu(request):
     return render(request, 'EditMenu.html')
 
-def restaurantlist(request, district_name,food_name):
+def restaurantlist_view(request, district_name,food_name):
 
-    return HttpResponse("You have entered" + district_name + food_name)
+
+    ident_restaurant2 = Restaurant.objects.filter(menu__name=food_name,district=district_name)
+
+    ident_restaurant = Restaurant.objects.filter(menu__name=food_name,district=district_name).values_list('id',flat=True)
+    ident_menu = Menu.objects.filter(restaurant_id__in=ident_restaurant, name=food_name)
+
+    liste = zip(ident_restaurant2,ident_menu)
+
+
+
+
+
+    return render(request, 'RestaurantList.html', {'result': liste})
+
+
+
+
+
+def successorder_view(request):
+    print(request.is_ajax())
+    a = request.POST.get('tasks[]')
+    print a
+
+
+
+    return render(request, 'successorder.html', {'list': a})
