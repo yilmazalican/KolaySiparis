@@ -14,17 +14,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Restaurants</title>
 
-  
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,15 +41,8 @@
     <div class="row">
      <div class="col-md-7"></div>
       <div class="col-md-7">
-       <br> </br>
-          <br> </br>
-            <br> </br>
-            <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search for...">
-               <span class="input-group-btn">
-                 <button class="btn btn-danger" type="button">Go!</button>
-               </span>
-             </div>
+
+
 </div>
      <table>
      <div class="col-md-2">
@@ -103,41 +89,28 @@
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
-                <!--
-				<tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-            -->
-                </tr>
+                <td><b>Restaurant id</b></td>
+                <td><b>Restaurant Name</b></td>
+                <td><b>Menu Name</b></td>
+                <td><b>Menu's price ₺</b></td>
+                <td><b>Menu's description</b></td>
+                <td><b>Restaurant's Location</b></td>
+
+
               </thead>
               <tbody>
+
+                {%for a,b in result%}
                 <tr>
-
-                  <td><a href="">McDonald's</td>
-				  <td><a href="">Çiğ Köfte</td>
-				  <td><a href="">6 TL</td>
-
+                    <td class="resid" >{{a.id}}</td>
+				            <td>{{a.name}}</td>
+                    <td>{{b.name}}</td>
+                    <td>₺ {{b.price}}</td>
+                    <td>{{b.description}}</td>
+                    <td>{{a.district}}</td>
+                    <td  > <button class="btn btn-default"> <a class="build" id="build" href="/customerRestaurant/{{a.id}}">Go</a></button></td>
                 </tr>
-                <tr>
-                  <td><a href="">Burger King</td>
-				  <td><a href="">Çiğ Köfte</td>
-				  <td><a href="">6 TL</td>
-
-                </tr>
-                <tr>
-                  <td><a href="">KFC</td>
-				  <td><a href="">Çiğ Köfte</td>
-				  <td><a href="">5 TL</td>
-
-                </tr>
-                <tr>
-                  <td><a href="">HACIOĞLU</td>
-				  <td><a href="">Çiğ Köfte</td>
-				  <td><a href="">5 TL</td>
-                </tr>
-
-
+                {% endfor %}
 
               </tbody>
             </table>
@@ -178,16 +151,14 @@
               <span class="text-muted"></span>
             </div>
           </div>
+          <input id="selectedresid" class = "selectedresid" type="hidden" value=""><input/>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+      <script>
+
+
+
+
+      </script>
   </body>
 </html>

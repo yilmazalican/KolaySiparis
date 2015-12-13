@@ -24,8 +24,8 @@ from KolaySiparisApp.views import restaurant_login_view
 from KolaySiparisApp.views import customerRestaurant_view
 from KolaySiparisApp.views import payment
 from KolaySiparisApp.views import editmenu
-from KolaySiparisApp.views import restaurantlist
-
+from KolaySiparisApp.views import restaurantlist_view
+from KolaySiparisApp.views import successorder_view
 
 
 
@@ -36,8 +36,13 @@ urlpatterns = [
     url(r'^login', login_view),
     url(r'^logout', logout_view),
     url(r'^rlogin', restaurant_login_view),
-    url(r'^customerRestaurant',customerRestaurant_view),
 	url(r'^payment', payment),
     url(r'^editmenu', editmenu),
-    url(r'^restaurantlist', restaurantlist),
+    url(r'^RestaurantList/(?P<district_name>.*)/(?P<food_name>.*)/$', restaurantlist_view),
+    url(r'^successorder', successorder_view),
+    url(r'^customerRestaurant/(?P<res_id>\d+)/$', customerRestaurant_view),
+
+
+
+
 ]

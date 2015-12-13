@@ -25,6 +25,7 @@ class Restaurant(models.Model):
     description = models.CharField(max_length=200)
     joindate = models.DateTimeField(default=datetime.now, blank=True)
     delivertime = models.CharField(max_length=100)
+    district = models.CharField(max_length=100, blank=True)
     status = models.BooleanField(default = True)
 
 
@@ -49,3 +50,4 @@ class Order(models.Model):
     status = models.BooleanField()
     menu = models.ManyToManyField(Menu)
     totalprice = models.IntegerField(default=0)
+    seen = models.BooleanField(default=False)
