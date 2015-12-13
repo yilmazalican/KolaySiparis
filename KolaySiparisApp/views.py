@@ -3,9 +3,10 @@ from KolaySiparisApp.models import UserInfo, Menu
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from .forms import LoginForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 import random
+
 
 
 
@@ -99,5 +100,6 @@ def payment(request):
 def editmenu(request):
     return render(request, 'EditMenu.html')
 
-def restaurantlist(request):
-    return render(request, 'RestaurantList.html')
+def restaurantlist(request, district_name,food_name):
+
+    return HttpResponse("You have entered" + district_name + food_name)

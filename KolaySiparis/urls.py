@@ -39,5 +39,6 @@ urlpatterns = [
     url(r'^customerRestaurant',customerRestaurant_view),
 	url(r'^payment', payment),
     url(r'^editmenu', editmenu),
-    url(r'^restaurantlist', restaurantlist),
+    url(r'^RestaurantList/(?P<district_name>.*)/(?P<food_name>.*)/$', restaurantlist),
+
 ]
