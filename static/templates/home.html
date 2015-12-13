@@ -12,152 +12,158 @@
 
 <!DOCTYPE html>
 <html  lang="en">
- <head>
- </head>
+<<<<<<< HEAD
+<head>
+</head>
+
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
-   <div class="container-fluid">
-    <div class="navbar-header">
-     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
-   </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+      </div>
 
-    <div class="row">
-     <div class="col-md-7"></div>
-      <div class="col-md-7">
-       <br> </br>
+      <div class="row">
+        <div class="col-md-7"></div>
+        <div class="col-md-7">
           <br> </br>
-            <br> </br>
-            <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search for...">
-               <span class="input-group-btn">
-                 <button class="btn btn-danger" type="button">Go!</button>
-               </span>
-             </div>
-</div>
-     <table>
-     <div class="col-md-2">
-       <div id="navbar"  class="navbar-collapse collapse">
-
-
-
-          <form  class="navbar-form navbar-right" method="POST" action="">
-            {% csrf_token %}
-            {%if request.user.is_authenticated%}
-            <div class="navbar-form navbar-right"/>
-
-
-            <span class="label label-success">Logged as {{request.user}}</span>
-
-            <div class="navbar-form navbar-right"/>
-
-
-            <a href="/logout/" class="btn btn-danger">logout</a>
-            {%elif not request.user.is_authendicated%}
-            <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control" name="username" id="username">
-            </div>
-
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password" id="password" >
-              </div>
-            <div class="form-group">
-            <Button  name="signinButton " class="btn btn-success" type="submit">Sign in</Button>
-            <a href="/register/" class="btn btn-success">Register</a>
-
-              </div>
-          </form>
-          {%endif%}
+          <br> </br>
+          <br> </br>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="button">Go!</button>
+            </span>
           </div>
         </div>
+        <table>
+          <div class="col-md-2">
+            <div id="navbar"  class="navbar-collapse collapse">
+
+
+
+              <form  class="navbar-form navbar-right" method="POST" action="">
+                {% csrf_token %}
+                {%if request.user.is_authenticated%}
+                <div class="navbar-form navbar-right"/>
+
+
+                <span class="label label-success">Logged as {{request.user}}</span>
+
+                <div class="navbar-form navbar-right"/>
+
+
+                <a href="/logout/" class="btn btn-danger">logout</a>
+                {%elif not request.user.is_authendicated%}
+                <div class="form-group">
+                  <input type="text" placeholder="Username" class="form-control" name="username" id="username">
+                </div>
+
+                <div class="form-group">
+                  <input type="password" placeholder="Password" class="form-control" name="password" id="password" >
+                </div>
+                <div class="form-group">
+                  <Button  name="signinButton " class="btn btn-success" type="submit">Sign in</Button>
+                  <a href="/register/" class="btn btn-success">Register</a>
+
+                </div>
+              </form>
+              {%endif%}
+            </div>
+          </div>
         </table>
-        </div><!--/.navbar-collapse -->
-     </div>
+      </div><!--/.navbar-collapse -->
+    </div>
   </nav>
 
 
-<div class="span6 columns" class="carousel">
-  <div id="myCarousel" class="carousel slide"  data-ride="carousel" >
+  <div class="span6 columns" class="carousel">
+    <div id="myCarousel" class="carousel slide"  data-ride="carousel" >
 
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" >
-      <div class="item active">
-        <img class="img-responsive center-block" src="{% static "img/yemek1.jpg" %}"  alt="">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox" >
+        <div class="item active">
+          <img class="img-responsive center-block" src="{% static "img/yemek1.jpg" %}"  alt="">
+        </div>
+
+        <div class="item">
+          <img  class="img-responsive center-block" src="{% static "img/yemek2.jpg" %}" alt="">
+        </div>
+
+        <div class="item">
+          <img class="img-responsive center-block" src="{% static "img/yemek3.jpg" %}" alt="">
+        </div>
+
+        <div class="item">
+          <img  class="img-responsive center-block" src="{% static "img/yemek4.jpg" %}" alt="">
+        </div>
       </div>
 
-      <div class="item">
-        <img  class="img-responsive center-block" src="{% static "img/yemek2.jpg" %}" alt="">
-      </div>
-
-      <div class="item">
-        <img class="img-responsive center-block" src="{% static "img/yemek3.jpg" %}" alt="">
-      </div>
-
-      <div class="item">
-        <img  class="img-responsive center-block" src="{% static "img/yemek4.jpg" %}" alt="">
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <br></br>
-     <div class="container "  >
-       <div class="row"></div>
-        <div class="col-md-2">
-          <div class="form-group">
-<label for="sel1">Select City</label>
- <select class="form-control" id="sel1">
-<option>İstanbul</option>
-<option>İzmir</option>
-<option>Kocaeli</option>
-<option>Trabzon</option>
-<option>Edirne</option>
-<option>Marmaris</option>
-<option>Bodrum</option>
-<option>Adana</option>
-<option>Mardin</option>
-<option>Gaziantep</option>
-<option>Ankara</option>
-<option>Sivas</option>
-</select>
-</div>
-</div>
-      <div class="col-md-2">
-   <div class="form-group">
-<label for="sel1">Select Region:</label>
-<select class="form-control" id="sel1">
-<option>Acıbadem</option>
-<option>Kadıköy</option>
-<option>Kartal</option>
-<option>Şile</option>
-</select>
-</div></div>
-<div class="col-md-6">
-<p class="navbar-text navbar-right">About <a href="#" class="navbar-link">KolaySiparis.com</a>
-<br><a href="#" class="navbar-link">Communication</a><br></p>
- </div>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="container "  >
+      <div class="row"></div>
 
+        <div class="row"></div>
+        <br></br>
+        <br></br>
+        <div class="col-md-4">
+
+          <div class="dropdown">
+                      <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+                          Select Location <span class="caret"></span>
+                      </a>
+              		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                        <li><a href="#">Some action</a></li>
+                        <li><a href="#">Some other action</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                          <a tabindex="-1" href="#">Hover me for more options</a>
+                          <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#">Second level</a></li>
+                            <li class="dropdown-submenu">
+                              <a href="#">Even More..</a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="#">3rd level</a></li>
+                              	<li><a href="#">3rd level</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#">Second level</a></li>
+                            <li><a href="#">Second level</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                  </div>
+          	</div>
+
+        </div>
+        <div class="col-md-11">
+          <p class="navbar-text navbar-right">About <a href="#" class="navbar-link">KolaySiparis.com</a>
+            <br><a href="#" class="navbar-link">Communication</a><br></p>
+          </div>
+
+
+
+      </div>
 
     </div>
-    </div>
-
-</div>
 
 
 
@@ -165,5 +171,5 @@
 
 
 
- </body>
-</html>
+  </body>
+  </html>
