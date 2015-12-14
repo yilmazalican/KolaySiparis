@@ -6,6 +6,7 @@ from .forms import LoginForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 import random
+import json
 
 
 
@@ -115,7 +116,23 @@ def customerRestaurant_view(request,res_id):
 
 
 def payment(request):
-    return render(request, 'payment.html')
+
+    orders = request.session['orders']
+    orders = json.loads(orders)
+    orders_list = []
+    i = 0
+    for a in orders:
+        i= i+ 1
+        b = Menu.objects.get(id=a)
+        orders_list.insert(i,b)
+
+
+
+
+
+
+
+    return render(request, 'payment.html', {'list': orders_list})
 
 def editmenu(request):
     return render(request, 'EditMenu.html')
@@ -143,8 +160,6 @@ def restaurantlist_view(request, district_name,food_name):
 def successorder_view(request):
     print(request.is_ajax())
     a = request.POST.get('tasks[]')
-    print a
+    request.session['orders'] = a
 
-
-
-    return render(request, 'successorder.html', {'list': a})
+    return render(request, 'successorder.html')

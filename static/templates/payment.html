@@ -26,6 +26,7 @@ Payment
      <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
    </div>
 
+
     <div class="row">
      <div class="col-md-7"></div>
       <div class="col-md-7">
@@ -82,8 +83,31 @@ Payment
 
 
 
-
 <div class="container">
+
+
+
+
+<table >
+
+<thead>
+  <td><b>You have purchased</b></td>
+</thead>
+
+ {%for a in list%}
+ <tr>
+
+<td> {{a.name}} <td>
+<td> ₺ {{a.price}} <td>
+
+
+
+   <tr>
+
+{%endfor%}
+
+</table>
+
   <form class="form-horizontal" role="form">
     <fieldset>
       <legend><h2>Payment</h2></legend>
