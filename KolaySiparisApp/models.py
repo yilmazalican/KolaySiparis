@@ -51,3 +51,4 @@ class Order(models.Model):
     menu = models.ManyToManyField(Menu)
     totalprice = models.IntegerField(default=0)
     seen = models.BooleanField(default=False)
+    payment_type = models.CharField(default="Nakit",max_length=100)
