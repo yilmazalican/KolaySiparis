@@ -12,7 +12,7 @@
 
 
 <title>
-Payment
+  Payment
 </title>
 </br></br>
 <body>
@@ -21,64 +21,29 @@ Payment
 </br></br></br></br></br>
 
 <nav class="navbar navbar-inverse navbar-fixed-top "  style="background-color:#660000">
-   <div class="container-fluid">
+  <div class="container-fluid">
     <div class="navbar-header">
-     <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
-   </div>
+      <img src="{% static "img/logo.png" %}" alt=" " class="img-circle" width="auth" height="150"/>
+    </div>
 
 
     <div class="row">
-     <div class="col-md-7"></div>
+      <div class="col-md-7"></div>
       <div class="col-md-7">
-       <br> </br>
-          <br> </br>
-            <br> </br>
-            <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search for...">
-               <span class="input-group-btn">
-                 <button class="btn btn-danger" type="button">Go!</button>
-               </span>
-             </div>
-</div>
-     <table>
-     <div class="col-md-2">
-       <div id="navbar"  class="navbar-collapse collapse">
-
-
-
-          <form  class="navbar-form navbar-right" method="POST" action="">
-            {% csrf_token %}
-            {%if request.user.is_authenticated%}
-            <div class="navbar-form navbar-right"/>
-
-
-            <span class="label label-success">Logged as {{request.user}}</span>
-
-            <div class="navbar-form navbar-right"/>
-
-
-            <a href="/logout/" class="btn btn-danger">logout</a>
-            {%elif not request.user.is_authendicated%}
-            <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control" name="username" id="username">
-            </div>
-
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password" id="password" >
-              </div>
-            <div class="form-group">
-            <Button  name="signinButton " class="btn btn-success" type="submit">Sign in</Button>
-            <a href="/register/" class="btn btn-success">Register</a>
-
-              </div>
-          </form>
-          {%endif%}
-          </div>
+        <br> </br>
+        <br> </br>
+        <br> </br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">Go!</button>
+          </span>
         </div>
-        </table>
-        </div><!--/.navbar-collapse -->
-     </div>
-  </nav>
+      </div>
+
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
 
 
 
@@ -88,125 +53,118 @@ Payment
 
 
 
-<table >
+  <table >
 
-<thead>
-  <td><b>You have purchased</b></td>
-</thead>
+    <thead>
+      <td><b>You have purchased</b></td>
+    </thead>
 
- {%for a in list%}
- <tr>
+    {%for a in list%}
+    <tr>
 
-<td> {{a.name}} <td>
-<td> ₺ {{a.price}} <td>
-
-
-
-   <tr>
-
-{%endfor%}
-
-</table>
-
-  <form class="form-horizontal" role="form">
-    <fieldset>
-      <legend><h2>Payment</h2></legend>
+      <td> {{a.name}} <td>
+        <td> ₺ {{a.price}} <td>
 
 
 
-	    <div class="form-group">
-        <label class="col-sm-3 control-label" for="expiry-month">Payment Type</label>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-xs-3">
+          <tr>
+
+            {%endfor%}
+
+          </table>
+
+          <form class="form-horizontal" role="form" method="post">
+            {% csrf_token %}
+            <legend><h2>Payment</h2></legend>
 
 
-              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-                <option>-Select-</option>
-                <option value="01">Cash</option>
-                <option value="02">Credit Card</option>
-				<option value="02">Both</option>
 
-              </select>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="expiry-month">Payment Type</label>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-xs-3">
+
+
+                    <select class="form-control col-sm-2"  name="payment_type" id="payment_type" >
+                      <option>-Select-</option>
+                      <option value="01">Cash</option>
+                      <option value="02">Credit Card</option>
+                      <option value="03">Both</option>
+
+                    </select>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="expiry-month">Please Select </label>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-xs-3">
+
+
+                    <select class="form-control col-sm-2"  name="please_select" id="please_select" >
+                      <option>-add new-</option>
+                      <option value="01">New Address</option>
+                      {%for a in adress_list%}
+                      <option>{{a.user_adress}}</option>
+
+                      {%endfor%}
+                    </select>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="card-holder-name">Address</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control"   name="Address" id="Address"  >
+              </div>
             </div>
 
 
-          </div>
-		   </div>
-      </div>
-
-		 <div class="form-group">
-        <label class="col-sm-3 control-label" for="expiry-month">Region</label>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-xs-3">
 
 
-              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-                <option>-Select-</option>
-				<option value="01">New Address</option>
 
 
-              </select>
+            <div class="form-group" >
+              <label class="col-sm-3 control-label" for="cvv">Promotion Code</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" placeholder="Code" name="promotion_code" id="promotion_code" >
+              </div>
             </div>
 
 
-          </div>
-		   </div>
-      </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="card-number">Add your comment:</label>
 
-
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-holder-name">Address</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-number">Name / Lastname</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="">
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="cvv">Phone Number</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Phone">
-        </div>
-      </div>
-
-
-	  <div class="form-group">
-        <label class="col-sm-3 control-label" for="cvv">Promotion Code</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Code">
-        </div>
-      </div>
-
-
-	  <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-number">Add your comment</label>
-        <div class="col-sm-9">
-          <textarea cols="12" rows="4" class="form-control" name="card-number" id="card-number" placeholder="">
-		  </textarea>
-        </div>
-      </div>
+                <textarea cols="15" rows="3" class="form-control" placeholder="" name="comment" id="comment" >
+                </textarea>
+            
+            </div>
 
 
 
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-          <button type="button" button onclick="doMyFunction();" class="btn btn-success">Approve Order</button>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+
+
+
+              </div>
+            </div>
+            <button type="submit" button onclick="" class="btn btn-success">Approve Order</button>
+
+          </form>
+
+
 
 
 
         </div>
-      </div>
-
-
-    </fieldset>
-  </form>
-</div>
-</body>
+      </body>

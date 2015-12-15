@@ -195,7 +195,7 @@
             }
 
             var foodname = $(this).closest("tr");   // Finds the closest row <tr>
-            $(foodname).remove();
+            foodname.remove();
             var foodname2 = $(this).closest("tr").find(".pr").text();   // Finds the closest row <tr>
             console.log(foodname2);
             removeItem(dict,foodname2);

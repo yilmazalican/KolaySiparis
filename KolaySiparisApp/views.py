@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from KolaySiparisApp.models import UserInfo, Menu,Restaurant
+from KolaySiparisApp.models import UserInfo, Menu,Restaurant, Address, Order
 from django.contrib.auth.models import User
 from .forms import RegisterForm
-from .forms import LoginForm
+from .forms import LoginForm, PaymentForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 import random
 import json
+from datetime import datetime
 
 
 
@@ -111,6 +112,10 @@ def customerRestaurant_view(request,res_id):
 
     ident_menu_res = Menu.objects.filter(restaurant_id=res_id)
     ident_res = Restaurant.objects.get(id=res_id)
+    request.session['res_id'] = res_id
+
+    print request.session['res_id']
+
 
     return render(request, 'customerRestaurant.html', {'result': ident_menu_res, 'aboutres': ident_res})
 
@@ -121,18 +126,68 @@ def payment(request):
     orders = json.loads(orders)
     orders_list = []
     i = 0
+    res_id = request.session['res_id']
     for a in orders:
         i= i+ 1
         b = Menu.objects.get(id=a)
         orders_list.insert(i,b)
 
 
+    if request.method == 'POST':
+         # create a form instance and populate it with data from the request:
+         form = PaymentForm(request.POST)
+
+         # check whether it's valid:
+         if form.is_valid():
+             order = Order()
+             print res_id
+             order.restaurant_id = res_id
+             order.seen=False
+             order.payment_type=form.cleaned_data["payment_type"]
+             order.customer_id=request.user.id
+             order.totalprice=100
+             order.status=True
+             order.time=datetime.now()
+             order.save()
+
+             for p in orders_list:
+
+                 order.menu.add(order.id,p)
+
+
+
+
+         else:
+             print form.errors
+             print "form valid degil"
+         print "success"
+
+     # if a GET (or any other method) we'll create a blank form
+    else:
+         print "else geldim"
+         print request.method
+         form = PaymentForm()
+    print "buraya geldim"
 
 
 
 
 
-    return render(request, 'payment.html', {'list': orders_list})
+
+
+
+
+
+
+    ident_adress = Address.objects.filter(user__id=request.user.id)
+
+
+
+
+
+
+
+    return render(request, 'payment.html', {'list': orders_list, 'adress_list': ident_adress, 'form':form})
 
 def editmenu(request):
     return render(request, 'EditMenu.html')
